@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>{{ 'login' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form >
+    <img alt="" src="assets/img/REALM-Logos/Logo__gold_1.svg"  />
+    <div>
+    <ion-list>
+      <ion-item >
+        <ion-label><ion-icon slot="end" name="globe-outline"></ion-icon></ion-label>
+        <ion-input type="text" name="domain" placeholder="{{ 'domain' | translate }}" [(ngModel)]="domain" [disabled]="validDomain"  (ionChange)="validateURL()" #domainField></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-row>
+      <ion-col>
+        <ion-button  type="submit" expand="block" color="primary" [disabled]="inProgress || !validURL" *ngIf="!validDomain" (click)="validateDomain()" >{{ 'login' | translate }} </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+
+  <div *ngIf="validDomain">
+    <ion-list>
+      <ion-item>
+        <ion-label ><ion-icon color="primary" slot="end" name="person" ></ion-icon></ion-label>
+      <!--  <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" placeholder="{{ 'username' | translate }}" required></ion-input>-->
+        <ion-input type="text" name="username" placeholder="{{ 'username' | translate }}" #usernameField [(ngModel)]="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon color="primary" size="default" slot="end" name="key"></ion-icon></ion-label>
+      <!-- <ion-input type="text" [(ngModel)]="login.password" ngControl="password" required placeholder="{{ 'password' | translate }}"> </ion-input>-->
+        <ion-input type="text" name="password" clearOnEdit="false" placeholder="{{ 'password' | translate }}" #passwordField [type]="passwordVisible ? 'text' : 'password'" [(ngModel)]="password"></ion-input>
+        <ion-button  size="small" fill="clear" type="button" item-right (click)="togglePassword(passwordField)">
+          <ion-icon size="small" slot="icon-only" name="eye" [name]="passwordVisible ? 'eye-off' :'eye'"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="onLogin()" type="submit" style="width: 100%"  expand="block" [disabled]="inProgress"><span>{{ 'login' | translate }}</span></ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onCancel()" color="light" style="width: 100%"  expand="block"  [disabled]="inProgress"> <span>{{ 'cancel' | translate }}</span></ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </div>
+  </form>
+</ion-content>
