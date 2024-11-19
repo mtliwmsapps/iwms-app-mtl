@@ -45,7 +45,7 @@
     "cordova-plugin-whitelist": "^1.3.4",
     "core-js": "^3.6.5",
     "ng-connection-service": "^1.0.4",
-    "rxjs": "^7.8.1",  
+    "rxjs": "^6.5.5",  
     "sw-toolbox": "^3.6.0",
     "tslib": "^2.0.0",
     "zone.js": "^0.11.0"
