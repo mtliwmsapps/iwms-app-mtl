@@ -1,0 +1,8 @@
+{
+    "/sdk": {
+      "target": "http://localhost:18070",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+  

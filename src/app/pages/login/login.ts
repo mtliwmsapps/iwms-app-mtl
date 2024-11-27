@@ -77,7 +77,7 @@ export class LoginPage {
   validateURL(): boolean {
     console.log('Validate URL clicked');
 
-    let domainToTest = '';
+    let domainToTest = 'aaa';
     if (this.domain) {
       domainToTest = this.domain.toLocaleLowerCase();
       this.validURL = this.urlRegExp.test(domainToTest);
